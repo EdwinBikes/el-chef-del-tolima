@@ -1,27 +1,68 @@
-
 import React from 'react';
 
+/* --- WhatsApp: Chat / Mensajería --- */
 export const WhatsAppIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg viewBox="0 0 32 32" fill="currentColor" {...props}>
-    <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.044-.53-.044-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.12-.302.214-.72.214-1.146 0-.107-.03-.215-.083-.29-.083-.172-.214-.24-.315-.315-.1-.072-.24-.115-.372-.115z M16 2.007C7.16 2.007 0 9.17 0 18.01c0 3.203 1.134 6.274 3.2 8.78l-2.06 7.21 7.42-2.02c2.44.96 5.1 1.46 7.84 1.46 8.84 0 16-7.163 16-15.993C32 9.17 24.84 2.007 16 2.007z M23.95 21.035c-.03-2.088-.81-3.845-2.2-5.26-1.58-1.585-3.6-2.325-5.7-2.325s-4.1.74-5.7 2.325c-1.39 1.415-2.17 3.172-2.2 5.26h15.8z" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M2.25 12c0 5.385 4.365 9.75 9.75 9.75 1.71 0 3.318-.43 4.72-1.19l3.53.94-.94-3.53A9.716 9.716 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M8.25 9.75c0 1.946 1.554 3.5 3.5 3.5M11.75 13.25c1.946 0 3.5-1.554 3.5-3.5"
+    />
   </svg>
 );
 
+/* --- Ubicación --- */
 export const MapPinIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-    </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+  </svg>
 );
 
+/* --- Teléfono / Llamar --- */
 export const PhoneIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-    </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M16.5 3.75h2.25m0 0v2.25m0-2.25l-6 6m-1.06 8.53a11.96 11.96 0 01-5.94-5.94c-.162-.441.004-.928.38-1.21l1.29-.97c.36-.27.53-.73.42-1.17L6.96 3.10A1.12 1.12 0 005.87 2.25H4.5A2.25 2.25 0 002.25 4.5c0 8.28 6.72 15 15 15a2.25 2.25 0 002.25-2.25v-1.37a1.12 1.12 0 00-.85-1.09L18 14.70"
+    />
+  </svg>
 );
 
+/* --- Horario / Tiempo --- */
 export const ClockIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M6.75 3.75h10.5m-10.5 0A3 3 0 003.75 6.75v10.5A3 3 0 006.75 20.25h10.5A3 3 0 0020.25 17.25V6.75A3 3 0 0017.25 3.75m-10.5 0V6m10.5-2.25V6m-5.25 4.5v4.5m0-4.5h3"
+    />
+  </svg>
 );
