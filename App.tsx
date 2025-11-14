@@ -1,21 +1,76 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import WhatsAppButton from './components/WhatsAppButton';
-import { ClockIcon, MapPinIcon, PhoneIcon } from './components/Icons';
+import { ClockIcon, MapPinIcon, PhoneIcon, MenuIcon, XIcon } from './components/Icons';
 import Loader from './components/Loader';
 
-const Header: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => (
-  <header className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
-    <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${isScrolled ? 'text-[#4A2E1A]' : 'text-white drop-shadow-sm'}`}>El Chef del Tolima</h1>
-      <nav className="hidden md:flex space-x-8">
-        <a href="#menu" className={`font-medium transition-colors duration-300 drop-shadow-sm ${isScrolled ? 'text-[#333333] hover:text-[#345E3B]' : 'text-white hover:text-gray-200'}`}>Menú</a>
-        <a href="#locations" className={`font-medium transition-colors duration-300 drop-shadow-sm ${isScrolled ? 'text-[#333333] hover:text-[#345E3B]' : 'text-white hover:text-gray-200'}`}>Ubicaciones</a>
-        <a href="#contact" className={`font-medium transition-colors duration-300 drop-shadow-sm ${isScrolled ? 'text-[#333333] hover:text-[#345E3B]' : 'text-white hover:text-gray-200'}`}>Contacto</a>
-      </nav>
-    </div>
-  </header>
-);
+const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = ({ isScrolled, activeSection }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  
+  const headerIsActive = isScrolled || isMenuOpen;
+
+  const getNavLinkClasses = (sectionId: string) => {
+    const isActive = activeSection === sectionId;
+    let classes = 'font-medium transition-colors duration-300';
+
+    if (headerIsActive) {
+      classes += isActive 
+        ? ' text-[#345E3B] font-semibold' 
+        : ' text-[#333333] hover:text-[#345E3B]';
+    } else {
+      classes += ' drop-shadow-sm';
+      classes += isActive 
+        ? ' text-white font-semibold underline decoration-2 underline-offset-4' 
+        : ' text-white hover:text-gray-200';
+    }
+    return classes;
+  };
+
+  const getMobileNavLinkClasses = (sectionId: string) => {
+    const isActive = activeSection === sectionId;
+    return `text-lg transition-colors ${isActive ? 'text-[#345E3B] font-bold' : 'text-[#4A2E1A] font-semibold hover:text-[#345E3B]'}`;
+  };
+  
+  return (
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out ${headerIsActive ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${headerIsActive ? 'text-[#4A2E1A]' : 'text-white drop-shadow-sm'}`}>El Chef del Tolima</h1>
+        
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-8">
+          <a href="#menu" className={getNavLinkClasses('menu')}>Menú</a>
+          <a href="#locations" className={getNavLinkClasses('locations')}>Ubicaciones</a>
+          <a href="#contact" className={getNavLinkClasses('contact')}>Contacto</a>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button 
+            onClick={toggleMenu} 
+            aria-label="Toggle menu" 
+            className={`transition-colors duration-300 z-20 relative ${headerIsActive ? 'text-[#4A2E1A]' : 'text-white'}`}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <XIcon className="w-7 h-7" /> : <MenuIcon className="w-7 h-7" />}
+          </button>
+        </div>
+      </div>
+      
+      {/* Mobile Menu Panel */}
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-60' : 'max-h-0'}`}>
+         <nav className="flex flex-col items-center space-y-4 py-4 border-t border-gray-200/80">
+            <a href="#menu" onClick={toggleMenu} className={getMobileNavLinkClasses('menu')}>Menú</a>
+            <a href="#locations" onClick={toggleMenu} className={getMobileNavLinkClasses('locations')}>Ubicaciones</a>
+            <a href="#contact" onClick={toggleMenu} className={getMobileNavLinkClasses('contact')}>Contacto</a>
+          </nav>
+      </div>
+    </header>
+  );
+};
 
 const Hero: React.FC = () => (
   <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=1920&auto=format&fit=crop')" }}>
@@ -93,7 +148,7 @@ const MenuItemCard: React.FC<{ item: MenuItem; index: number }> = ({ item, index
 
 const Menu: React.FC = () => {
   return (
-    <section id="menu" className="py-16 md:py-24 bg-[#FDFBF5]">
+    <section id="menu" className="py-16 md:py-24 bg-[#FDFBF5] scroll-mt-20">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#4A2E1A] mb-12">Nuestro Menú</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -114,7 +169,7 @@ const VideoLocations: React.FC = () => {
     ];
 
     return (
-        <section id="locations" className="py-16 md:py-24 bg-[#FDFBF5]">
+        <section id="locations" className="py-16 md:py-24 bg-[#FDFBF5] scroll-mt-20">
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-center text-[#4A2E1A] mb-4">Visítanos y Vive la Experiencia</h2>
                 <p className="text-center text-[#6B6B6B] max-w-2xl mx-auto mb-12">
@@ -148,7 +203,7 @@ const VideoLocations: React.FC = () => {
 
 
 const Contact: React.FC = () => (
-    <section id="contact" className="py-16 md:py-24 bg-[#FDFBF5]">
+    <section id="contact" className="py-16 md:py-24 bg-[#FDFBF5] scroll-mt-20">
         <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#4A2E1A] mb-8">Contáctanos</h2>
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
@@ -179,6 +234,7 @@ const Footer: React.FC = () => (
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     // Simulate a loading time
@@ -199,13 +255,46 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (loading) return;
+
+    const sectionIds = ['menu', 'locations', 'contact'];
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    if (sections.length === 0) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, [loading]);
+
   if (loading) {
     return <Loader />;
   }
 
   return (
     <div className="bg-[#FDFBF5] min-h-screen">
-      <Header isScrolled={isScrolled} />
+      <Header isScrolled={isScrolled} activeSection={activeSection} />
       <main>
         <Hero />
         <Menu />
