@@ -73,7 +73,7 @@ const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = 
 };
 
 const Hero: React.FC = () => (
-  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://drive.google.com/uc?export=view&id=120E0QRsMewgWfTjq8z4sWJBlE9PT866r')" }}>
+  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('/assets/images/hero-background.jpg')" }}>
     <div className="absolute inset-0 bg-black/50"></div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
@@ -83,12 +83,12 @@ const Hero: React.FC = () => (
 );
 
 const menuItems = [
-    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "https://drive.google.com/uc?export=view&id=1bv-tlj4wtuVRdoCNFH9w-FirWKQG0AsM" },
-    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "https://drive.google.com/uc?export=view&id=1s30ulKrzslu211Q12bQV5rDQAEp_0NEt" },
-    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "https://drive.google.com/uc?export=view&id=1QBd1UnsVTfjRQ93ORSDg6-X9ZUPlpIt9" },
-    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "https://drive.google.com/uc?export=view&id=1f85qfujWMW5UUPkKg_Xz8TD5Lj2y2l6K" },
-    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "https://drive.google.com/uc?export=view&id=1KNyC6UYctABdQ10vWlDsIXShsPrlEIgm" },
-    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "https://drive.google.com/uc?export=view&id=1WLjudRA3rFFKxXc3kWBFF6_sh7Wl9xCa" },
+    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "/assets/images/tamal-pequeno.jpg" },
+    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "/assets/images/tamal-mediano.jpg" },
+    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "/assets/images/tamal-grande.jpg" },
+    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "/assets/images/tamal-con-lechona.jpg" },
+    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "/assets/images/chocolate.jpg" },
+    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "/assets/images/jugo-naranja.jpg" },
   ];
 
 interface MenuItem {
