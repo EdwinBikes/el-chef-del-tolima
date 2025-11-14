@@ -73,7 +73,7 @@ const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = 
 };
 
 const Hero: React.FC = () => (
-  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1565895405137-3ca291088c2c?q=80&w=2070&auto=format&fit=crop')" }}>
+  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://drive.google.com/file/d/120E0QRsMewgWfTjq8z4sWJBlE9PT866r/view?usp=drive_link')" }}>
     <div className="absolute inset-0 bg-black/50"></div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
