@@ -73,7 +73,7 @@ const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = 
 };
 
 const Hero: React.FC = () => (
-  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('/assets/images/hero-background.jpg')" }}>
+  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1565895405137-3ca291088c2c?q=80&w=2070&auto=format&fit=crop')" }}>
     <div className="absolute inset-0 bg-black/50"></div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
@@ -83,12 +83,12 @@ const Hero: React.FC = () => (
 );
 
 const menuItems = [
-    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "/assets/images/tamal-pequeno.jpg" },
-    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "/assets/images/tamal-mediano.jpg" },
-    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "/assets/images/tamal-grande.jpg" },
-    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "/assets/images/tamal-con-lechona.jpg" },
-    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "/assets/images/chocolate.jpg" },
-    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "/assets/images/jugo-naranja.jpg" },
+    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+Pequeño" },
+    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+Mediano" },
+    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+Grande" },
+    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+con+Lechona" },
+    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Chocolate" },
+    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Jugo+de+Naranja" },
   ];
 
 interface MenuItem {
