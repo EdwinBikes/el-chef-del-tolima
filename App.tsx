@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import WhatsAppButton from './components/WhatsAppButton';
 import { ClockIcon, MapPinIcon, PhoneIcon } from './components/Icons';
+import Loader from './components/Loader';
 
 const Header: React.FC = () => (
   <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
@@ -17,7 +18,7 @@ const Header: React.FC = () => (
 );
 
 const Hero: React.FC = () => (
-  <section className="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?food,mexican')" }}>
+  <section className="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=1920&auto=format&fit=crop')" }}>
     <div className="absolute inset-0 bg-black/50"></div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
@@ -72,16 +73,14 @@ const VideoLocations: React.FC = () => {
                 <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
                     {locations.map((location, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-xl overflow-hidden group">
-                            <div className="aspect-w-16 aspect-h-9">
-                                <video
-                                    src={location.videoSrc}
-                                    controls
-                                    className="w-full h-full object-cover"
-                                    aria-label={`Video de la sucursal ${location.name}`}
-                                >
-                                    Tu navegador no soporta el tag de video.
-                                </video>
-                            </div>
+                            <video
+                                src={location.videoSrc}
+                                controls
+                                className="w-full aspect-video object-cover"
+                                aria-label={`Video de la sucursal ${location.name}`}
+                            >
+                                Tu navegador no soporta el tag de video.
+                            </video>
                             <div className="p-6">
                                 <h3 className="text-2xl font-bold text-amber-900">{location.name}</h3>
                                 <p className="text-gray-700 mt-2 flex items-center">
@@ -105,7 +104,7 @@ const Contact: React.FC = () => (
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
                 <div className="flex items-center text-lg text-gray-700">
                     <PhoneIcon className="w-6 h-6 mr-3 text-amber-800" />
-                    <span>Pedidos: +52 55 1234 5678</span>
+                    <span>Pedidos: 3102800939</span>
                 </div>
                 <div className="flex items-center text-lg text-gray-700">
                     <ClockIcon className="w-6 h-6 mr-3 text-amber-800" />
@@ -128,6 +127,21 @@ const Footer: React.FC = () => (
 
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div className="bg-orange-50 min-h-screen">
       <Header />
@@ -138,7 +152,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton phoneNumber="+573102800939" message="¡Hola! Quisiera hacer un pedido de tamales." />
+      <WhatsAppButton />
     </div>
   );
 }
