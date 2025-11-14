@@ -6,7 +6,7 @@ import { ClockIcon, MapPinIcon, PhoneIcon } from './components/Icons';
 const Header: React.FC = () => (
   <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
     <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 className="text-2xl md:text-3xl font-bold text-amber-900">Tamales del Corazón</h1>
+      <h1 className="text-2xl md:text-3xl font-bold text-amber-900">El Chef del Tolima</h1>
       <nav className="hidden md:flex space-x-8">
         <a href="#menu" className="text-gray-700 hover:text-amber-800 transition-colors">Menú</a>
         <a href="#locations" className="text-gray-700 hover:text-amber-800 transition-colors">Ubicaciones</a>
@@ -21,19 +21,19 @@ const Hero: React.FC = () => (
     <div className="absolute inset-0 bg-black/50"></div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
-      <p className="text-lg md:text-2xl max-w-2xl drop-shadow-md">Hechos con amor, como los de la abuela. Cada tamal cuenta una historia.</p>
+      <p className="text-lg md:text-2xl max-w-2xl drop-shadow-md">Hechos con amor, con los sabores de la abuela. Cada tamal cuenta una historia.</p>
     </div>
   </section>
 );
 
 const Menu: React.FC = () => {
   const menuItems = [
-    { name: "Tamal Verde", description: "Pollo en salsa verde, un clásico que nunca falla.", price: "$25" },
-    { name: "Tamal de Mole", description: "Pollo con nuestro mole especial de la casa.", price: "$28" },
-    { name: "Tamal de Rajas", description: "Queso oaxaca con rajas de chile poblano.", price: "$25" },
-    { name: "Tamal de Dulce", description: "Con pasas y un toque de piña.", price: "$23" },
-    { name: "Champurrado", description: "Bebida caliente de masa y chocolate.", price: "$20" },
-    { name: "Atole de Elote", description: "Dulce y cremoso, perfecto para acompañar.", price: "$20" },
+    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k" },
+    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k" },
+    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k" },
+    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k" },
+    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k" },
+    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k" },
   ];
   return (
     <section id="menu" className="py-16 md:py-24 bg-orange-50">
@@ -57,9 +57,9 @@ const Menu: React.FC = () => {
 
 const VideoLocations: React.FC = () => {
     const locations = [
-        { name: "Sucursal Roma", address: "Av. de los Insurgentes Sur 123, Roma Nte.", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
-        { name: "Sucursal Condesa", address: "Av. Amsterdam 456, Hipódromo", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
-        { name: "Sucursal Coyoacán", address: "Jardín Centenario 789, Coyoacán", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
+        { name: "Sede Bosa centro", address: "Cra. 78c #71 c 46 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
+        { name: "Sede Fontibon", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
+        { name: "Sede San Cristobal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
     ];
 
     return (
@@ -67,7 +67,7 @@ const VideoLocations: React.FC = () => {
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-4">Visítanos y Vive la Experiencia</h2>
                 <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-                    Contamos con tres sucursales para que disfrutes de nuestros deliciosos tamales donde quiera que estés. ¡Mira un poco de nuestro ambiente!
+                    Contamos con tres sedes para que disfrutes de nuestros deliciosos tamales donde quiera que estés. ¡Mira un poco de nuestro ambiente!
                 </p>
                 <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
                     {locations.map((location, index) => (
@@ -109,10 +109,10 @@ const Contact: React.FC = () => (
                 </div>
                 <div className="flex items-center text-lg text-gray-700">
                     <ClockIcon className="w-6 h-6 mr-3 text-amber-800" />
-                    <span>Lunes a Domingo: 8:00am - 9:00pm</span>
+                    <span>Todos los días de: 7:00am - 2:00pm</span>
                 </div>
             </div>
-             <p className="mt-8 text-gray-600">¡Haz tu pedido por WhatsApp para recoger en tu sucursal más cercana!</p>
+             <p className="mt-8 text-gray-600">¡Pedidos de Tamales al por mayor por WhatsApp!</p>
         </div>
     </section>
 );
@@ -121,7 +121,7 @@ const Contact: React.FC = () => (
 const Footer: React.FC = () => (
   <footer className="bg-amber-900 text-orange-50 py-8">
     <div className="container mx-auto px-6 text-center">
-      <p>&copy; {new Date().getFullYear()} Tamales del Corazón. Todos los derechos reservados.</p>
+      <p>&copy; {new Date().getFullYear()} El Chef del Tolima. Todos los derechos reservados.</p>
     </div>
   </footer>
 );
@@ -138,7 +138,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton phoneNumber="+5215512345678" message="¡Hola! Quisiera hacer un pedido de tamales." />
+      <WhatsAppButton phoneNumber="+573102800939" message="¡Hola! Quisiera hacer un pedido de tamales." />
     </div>
   );
 }
