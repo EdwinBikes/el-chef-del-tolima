@@ -7,11 +7,11 @@ import Loader from './components/Loader';
 const Header: React.FC = () => (
   <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
     <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 className="text-2xl md:text-3xl font-bold text-amber-900">El Chef del Tolima</h1>
+      <h1 className="text-2xl md:text-3xl font-bold text-[#4A2E1A]">El Chef del Tolima</h1>
       <nav className="hidden md:flex space-x-8">
-        <a href="#menu" className="text-gray-700 hover:text-amber-800 transition-colors">Menú</a>
-        <a href="#locations" className="text-gray-700 hover:text-amber-800 transition-colors">Ubicaciones</a>
-        <a href="#contact" className="text-gray-700 hover:text-amber-800 transition-colors">Contacto</a>
+        <a href="#menu" className="text-[#333333] hover:text-[#345E3B] transition-colors">Menú</a>
+        <a href="#locations" className="text-[#333333] hover:text-[#345E3B] transition-colors">Ubicaciones</a>
+        <a href="#contact" className="text-[#333333] hover:text-[#345E3B] transition-colors">Contacto</a>
       </nav>
     </div>
   </header>
@@ -37,17 +37,17 @@ const Menu: React.FC = () => {
     { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k" },
   ];
   return (
-    <section id="menu" className="py-16 md:py-24 bg-orange-50">
+    <section id="menu" className="py-16 md:py-24 bg-[#FDFBF5]">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-12">Nuestro Menú</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#4A2E1A] mb-12">Nuestro Menú</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {menuItems.map((item, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex justify-between items-baseline">
-                <h3 className="text-xl font-bold text-amber-800">{item.name}</h3>
-                <p className="text-lg font-semibold text-green-700">{item.price}</p>
+                <h3 className="text-xl font-bold text-[#A35738]">{item.name}</h3>
+                <p className="text-lg font-semibold text-[#345E3B]">{item.price}</p>
               </div>
-              <p className="text-gray-600 mt-2">{item.description}</p>
+              <p className="text-[#6B6B6B] mt-2">{item.description}</p>
             </div>
           ))}
         </div>
@@ -64,10 +64,10 @@ const VideoLocations: React.FC = () => {
     ];
 
     return (
-        <section id="locations" className="py-16 md:py-24 bg-white">
+        <section id="locations" className="py-16 md:py-24 bg-[#FDFBF5]">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-4">Visítanos y Vive la Experiencia</h2>
-                <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-[#4A2E1A] mb-4">Visítanos y Vive la Experiencia</h2>
+                <p className="text-center text-[#6B6B6B] max-w-2xl mx-auto mb-12">
                     Contamos con tres sedes para que disfrutes de nuestros deliciosos tamales donde quiera que estés. ¡Mira un poco de nuestro ambiente!
                 </p>
                 <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
@@ -82,9 +82,9 @@ const VideoLocations: React.FC = () => {
                                 Tu navegador no soporta el tag de video.
                             </video>
                             <div className="p-6">
-                                <h3 className="text-2xl font-bold text-amber-900">{location.name}</h3>
-                                <p className="text-gray-700 mt-2 flex items-center">
-                                    <MapPinIcon className="w-5 h-5 mr-2 text-amber-700" />
+                                <h3 className="text-2xl font-bold text-[#4A2E1A]">{location.name}</h3>
+                                <p className="text-[#333333] mt-2 flex items-center">
+                                    <MapPinIcon className="w-5 h-5 mr-2 text-[#345E3B]" />
                                     {location.address}
                                 </p>
                             </div>
@@ -98,27 +98,27 @@ const VideoLocations: React.FC = () => {
 
 
 const Contact: React.FC = () => (
-    <section id="contact" className="py-16 md:py-24 bg-orange-50">
+    <section id="contact" className="py-16 md:py-24 bg-[#FDFBF5]">
         <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-8">Contáctanos</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#4A2E1A] mb-8">Contáctanos</h2>
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
-                <div className="flex items-center text-lg text-gray-700">
-                    <PhoneIcon className="w-6 h-6 mr-3 text-amber-800" />
+                <div className="flex items-center text-lg text-[#333333]">
+                    <PhoneIcon className="w-6 h-6 mr-3 text-[#345E3B]" />
                     <span>Pedidos: 3102800939</span>
                 </div>
-                <div className="flex items-center text-lg text-gray-700">
-                    <ClockIcon className="w-6 h-6 mr-3 text-amber-800" />
+                <div className="flex items-center text-lg text-[#333333]">
+                    <ClockIcon className="w-6 h-6 mr-3 text-[#345E3B]" />
                     <span>Todos los días de: 7:00am - 2:00pm</span>
                 </div>
             </div>
-             <p className="mt-8 text-gray-600">¡Pedidos de Tamales al por mayor por WhatsApp!</p>
+             <p className="mt-8 text-[#6B6B6B]">¡Pedidos de Tamales al por mayor por WhatsApp!</p>
         </div>
     </section>
 );
 
 
 const Footer: React.FC = () => (
-  <footer className="bg-amber-900 text-orange-50 py-8">
+  <footer className="bg-[#345E3B] text-[#FDFBF5] py-8">
     <div className="container mx-auto px-6 text-center">
       <p>&copy; {new Date().getFullYear()} El Chef del Tolima. Todos los derechos reservados.</p>
     </div>
@@ -143,7 +143,7 @@ export default function App() {
   }
 
   return (
-    <div className="bg-orange-50 min-h-screen">
+    <div className="bg-[#FDFBF5] min-h-screen">
       <Header />
       <main>
         <Hero />
