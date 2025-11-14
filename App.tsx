@@ -83,12 +83,12 @@ const Hero: React.FC = () => (
 );
 
 const menuItems = [
-    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+Pequeño" },
-    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+Mediano" },
-    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+Grande" },
-    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Tamal+con+Lechona" },
-    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Chocolate" },
-    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "https://placehold.co/600x400/E6D3B3/4A2E1A?text=Jugo+de+Naranja" },
+    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "https://drive.google.com/file/d/1bv-tlj4wtuVRdoCNFH9w-FirWKQG0AsM/view?usp=drive_link" },
+    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "https://drive.google.com/file/d/1s30ulKrzslu211Q12bQV5rDQAEp_0NEt/view?usp=drive_link" },
+    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "https://drive.google.com/file/d/1QBd1UnsVTfjRQ93ORSDg6-X9ZUPlpIt9/view?usp=drive_link" },
+    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "https://drive.google.com/file/d/1f85qfujWMW5UUPkKg_Xz8TD5Lj2y2l6K/view?usp=drive_link" },
+    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "https://drive.google.com/file/d/1KNyC6UYctABdQ10vWlDsIXShsPrlEIgm/view?usp=drive_link" },
+    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "https://drive.google.com/file/d/1WLjudRA3rFFKxXc3kWBFF6_sh7Wl9xCa/view?usp=drive_link" },
   ];
 
 interface MenuItem {
