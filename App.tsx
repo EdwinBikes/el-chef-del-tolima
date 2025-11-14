@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import WhatsAppButton from './components/WhatsAppButton';
-import { ClockIcon, MapPinIcon, PhoneIcon, MenuIcon, XIcon } from './components/Icons';
+import { ClockIcon, MapPinIcon, PhoneIcon, MenuIcon, XIcon, TiktokIcon, InstagramIcon, FacebookIcon } from './components/Icons';
 import Loader from './components/Loader';
 
 const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = ({ isScrolled, activeSection }) => {
@@ -77,7 +77,7 @@ const Hero: React.FC = () => (
     <div className="absolute inset-0 bg-black/50"></div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
-      <p className="text-lg md:text-2xl max-w-2xl drop-shadow-md">Hechos con amor, con los sabores de la abuela. Cada tamal cuenta una historia.</p>
+      <p className="text-lg md:text-2xl max-w-2xl drop-shadow-md">Hechos con amor, con los sabores de la abuela.           Cada tamal cuenta una historia.</p>
     </div>
   </section>
 );
@@ -163,9 +163,9 @@ const Menu: React.FC = () => {
 
 const VideoLocations: React.FC = () => {
     const locations = [
-        { name: "Sede Bosa centro", address: "Cra. 78c #71 c 46 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
-        { name: "Sede Fontibon", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
-        { name: "Sede San Cristobal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4" },
+        { name: "Sede Bosa centro", address: "Cra. 78c #71 c 46 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/CLp4LWyGJkz5QoN9A" },
+        { name: "Sede Fontibon", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/ikbzx6LG99bxPr7m7" },
+        { name: "Sede San Cristobal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/XUYDGZMWJUhuH5FR7" },
     ];
 
     return (
@@ -188,10 +188,15 @@ const VideoLocations: React.FC = () => {
                             </video>
                             <div className="p-6">
                                 <h3 className="text-2xl font-bold text-[#4A2E1A]">{location.name}</h3>
-                                <p className="text-[#333333] mt-2 flex items-center">
+                                <a 
+                                    href={location.mapUrl} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="text-[#333333] mt-2 flex items-center hover:underline hover:text-[#345E3B] transition-colors"
+                                >
                                     <MapPinIcon className="w-5 h-5 mr-2 text-[#345E3B]" />
-                                    {location.address}
-                                </p>
+                                    <span>{location.address}</span>
+                                </a>
                             </div>
                         </div>
                     ))}
@@ -217,6 +222,21 @@ const Contact: React.FC = () => (
                 </div>
             </div>
              <p className="mt-8 text-[#6B6B6B]">¡Pedidos de Tamales al por mayor por WhatsApp!</p>
+             
+             <div className="mt-12">
+                <h3 className="text-2xl font-semibold text-[#4A2E1A] mb-6">Síguenos en nuestras redes</h3>
+                <div className="flex justify-center items-center gap-8">
+                    <a href="https://www.tiktok.com/@el.chef.del.tolima" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-[#333333] hover:text-[#345E3B] transition-colors">
+                        <TiktokIcon className="w-8 h-8" />
+                    </a>
+                    <a href="https://instagram.com/elchefdeltolima" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#333333] hover:text-[#345E3B] transition-colors">
+                        <InstagramIcon className="w-8 h-8" />
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61559401654367" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#333333] hover:text-[#345E3B] transition-colors">
+                        <FacebookIcon className="w-8 h-8" />
+                    </a>
+                </div>
+             </div>
         </div>
     </section>
 );
