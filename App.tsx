@@ -37,8 +37,8 @@ const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = 
   
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out ${headerIsActive ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className={`text-2xl md:text-3xl font-bold transition-colors duration-300 ${headerIsActive ? 'text-[#4A2E1A]' : 'text-white drop-shadow-sm'}`}>El Chef del Tolima</h1>
+      <div className={`container mx-auto px-6 flex justify-between items-center transition-all duration-300 ease-in-out ${isScrolled ? 'py-2' : 'py-4'}`}>
+        <h1 className={`font-bold transition-all duration-300 ease-in-out ${isScrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'} ${headerIsActive ? 'text-[#4A2E1A]' : 'text-white drop-shadow-sm'}`}>El Chef del Tolima</h1>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
@@ -73,7 +73,7 @@ const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = 
 };
 
 const Hero: React.FC = () => (
-  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=1920&auto=format&fit=crop')" }}>
+  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('/assets/images/hero-background.jpg')" }}>
     <div className="absolute inset-0 bg-black/50"></div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
       <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
@@ -83,12 +83,12 @@ const Hero: React.FC = () => (
 );
 
 const menuItems = [
-    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "https://images.unsplash.com/photo-1629819124328-9359a5180631?q=80&w=800&auto=format&fit=crop" },
-    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "https://images.unsplash.com/photo-1599975494720-4628b0a02095?q=80&w=800&auto=format&fit=crop" },
-    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "https://images.unsplash.com/photo-1629819124434-3168b4380a90?q=80&w=800&auto=format&fit=crop" },
-    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "https://media.istockphoto.com/id/1191599348/es/foto/delicioso-tamal-colombiano-con-fuente-de-prote%C3%ADna.jpg?s=612x612&w=0&k=20&c=w5T-7BTjxi9eG982RjC-NlO_q-zHAcT0u38z5pW_wDs=" },
-    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "https://images.unsplash.com/photo-1542326521-4658f4b0c13f?q=80&w=800&auto=format&fit=crop" },
-    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=800&auto=format&fit=crop" },
+    { name: "Tamal pequeño", description: "Un clásico que nunca falla.", price: "$6k", imageUrl: "/assets/images/tamal-pequeno.jpg" },
+    { name: "Tamal mediano", description: "El tamaño perfecto para todos.", price: "$7k", imageUrl: "/assets/images/tamal-mediano.jpg" },
+    { name: "Tamal grande", description: "Si tienes mucha hambre esta es tu mejor opción.", price: "$8k", imageUrl: "/assets/images/tamal-grande.jpg" },
+    { name: "Tamal con lechona", description: "El mejor acompañante y el mejor sabor", price: "$15k", imageUrl: "/assets/images/tamal-con-lechona.jpg" },
+    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate.", price: "$2k", imageUrl: "/assets/images/chocolate.jpg" },
+    { name: "Jugo de naranja", description: "Dulce y fresco, perfecto para acompañar.", price: "$4k y 7k", imageUrl: "/assets/images/jugo-naranja.jpg" },
   ];
 
 interface MenuItem {
@@ -164,8 +164,8 @@ const Menu: React.FC = () => {
 const VideoLocations: React.FC = () => {
     const locations = [
         { name: "Sede Bosa centro", address: "Cra. 78c #71 c 46 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/CLp4LWyGJkz5QoN9A" },
-        { name: "Sede Fontibon", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/ikbzx6LG99bxPr7m7" },
-        { name: "Sede San Cristobal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/XUYDGZMWJUhuH5FR7" },
+        { name: "Sede Fontibón", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/ikbzx6LG99bxPr7m7" },
+        { name: "Sede San Cristóbal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/XUYDGZMWJUhuH5FR7" },
     ];
 
     return (
