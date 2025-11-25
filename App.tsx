@@ -83,12 +83,13 @@ const Hero: React.FC = () => (
 );
 
 const menuItems = [
-    { name: "Tamal pequeño", description: "Un clásico que nunca falla, ideal para acompañar con pan y chocolate.", price: "$6k", imageUrl: "https://i.postimg.cc/k5ZT9KCy/tamal_pequeno.jpg" },
-    { name: "Tamal mediano", description: "El tamaño perfecto para todos, servido para una experiencia completa.", price: "$7k", imageUrl: "https://i.postimg.cc/8C3ZDMGm/tamal_mediano.jpg" },
-    { name: "Tamal grande", description: "Nuestra porción más generosa para satisfacer los paladares más exigentes.", price: "$8k", imageUrl: "https://i.postimg.cc/FKqTm3vy/tamal_grande.jpg" },
-    { name: "Tamal con lechona", description: "La combinación perfecta del Tolima: tamal y nuestra crujiente lechona.", price: "$15k", imageUrl: "https://i.postimg.cc/wBPwHLzD/tamal_con_lechona.jpg" },
-    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate, el complemento ideal.", price: "$2k", imageUrl: "https://i.postimg.cc/TPStGgxg/chocolate.jpg" },
-    { name: "Jugo de naranja", description: "Jugo 100% natural, dulce y fresco para acompañar tu tamal.", price: "$4k y 7k", imageUrl: "https://i.postimg.cc/tgfByWbh/jugo_naranja.jpg" },
+    { name: "Tamal pequeño", description: "Un clásico que nunca falla, ideal para acompañar con pan y chocolate.", price: "$5.5k", imageUrl: "https://i.postimg.cc/k5ZT9KCy/tamal_pequeno.jpg" },
+    { name: "Tamal mediano", description: "El tamaño perfecto para todos, servido para una experiencia completa.", price: "$6.5k", imageUrl: "https://i.postimg.cc/8C3ZDMGm/tamal_mediano.jpg" },
+    { name: "Tamal grande", description: "Nuestra porción más generosa para satisfacer los paladares más exigentes.", price: "$7k", imageUrl: "https://i.postimg.cc/FKqTm3vy/tamal_grande.jpg" },
+    { name: "Tamal picante", description: "El mejor y mas delicioso tamal picante de la ciudad.", price: "$9k", imageUrl: "https://i.postimg.cc/FKqTm3vy/tamal_grande.jpg" },
+    { name: "Tamal con lechona", description: "La combinación perfecta del Tolima: tamal y nuestra crujiente lechona por un adicional de.", price: "$8k", imageUrl: "https://i.postimg.cc/wBPwHLzD/tamal_con_lechona.jpg" },
+    { name: "Chocolate", description: "Bebida caliente y espumoso chocolate, el complemento ideal.", price: "$3k", imageUrl: "https://i.postimg.cc/TPStGgxg/chocolate.jpg" },
+    { name: "Jugo de naranja", description: "Jugo 100% natural, recien preparado para acompañar tu tamal.", price: "$4k y 7k", imageUrl: "https://i.postimg.cc/tgfByWbh/jugo_naranja.jpg" },
   ];
 
 interface MenuItem {
@@ -132,7 +133,7 @@ const MenuItemCard: React.FC<{ item: MenuItem; index: number }> = ({ item, index
         <div
             ref={cardRef}
             className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: `${index * 100}ms` }}
+            style={{ transitionDelay: `${index * 200}ms` }}
         >
             <img src={item.imageUrl} alt={item.name} className="w-full h-48 object-cover" />
             <div className="p-6 flex-grow flex flex-col">
