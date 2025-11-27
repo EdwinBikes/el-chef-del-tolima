@@ -72,15 +72,31 @@ const Header: React.FC<{ isScrolled: boolean; activeSection: string | null }> = 
   );
 };
 
-const Hero: React.FC = () => (
-  <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('https://i.postimg.cc/mrqmRC43/hero_background.jpg')" }}>
-    <div className="absolute inset-0 bg-black/50"></div>
-    <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-      <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg">El Sabor Auténtico de la Tradición</h2>
-      <p className="text-lg md:text-2xl max-w-2xl drop-shadow-md">Hechos con amor, con los sabores de la abuela.           Cada tamal cuenta una historia.</p>
-    </div>
-  </section>
-);
+const Hero: React.FC = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  return (
+    <section className="relative h-screen bg-black overflow-hidden">
+      <div 
+        className={`absolute inset-0 bg-cover bg-center transition-all duration-[2500ms] ease-out transform ${isLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'}`} 
+        style={{ backgroundImage: "url('https://i.postimg.cc/mrqmRC43/hero_background.jpg')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+        <h2 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-4 drop-shadow-lg transition-all duration-1000 ease-out delay-500 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          El Sabor Auténtico de la Tradición
+        </h2>
+        <p className={`text-lg md:text-2xl max-w-2xl drop-shadow-md transition-all duration-1000 ease-out delay-1000 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          Hechos con amor, con los sabores de la abuela.<br />Cada tamal cuenta una historia.
+        </p>
+      </div>
+    </section>
+  );
+};
 
 const menuItems = [
     { name: "Tamal pequeño", description: "Un clásico que nunca falla, ideal para acompañar con pan y chocolate.", price: "$5.5k", imageUrl: "https://i.postimg.cc/XvWdshGB/imagen-editada-(8).png" },
@@ -163,15 +179,55 @@ const Menu: React.FC = () => {
 };
 
 const VideoLocations: React.FC = () => {
+    const [animationStage, setAnimationStage] = useState(0); // 0: hidden, 1: icon visible, 2: content visible
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Trigger animation when the section is at least 30% visible
+                if (entry.isIntersecting && animationStage === 0) {
+                    setAnimationStage(1);
+                    
+                    // After 1.2 seconds of showing the icon, switch to showing the content
+                    setTimeout(() => {
+                        setAnimationStage(2);
+                    }, 1200);
+                }
+            },
+            {
+                threshold: 0.3
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.disconnect();
+            }
+        };
+    }, [animationStage]);
+
     const locations = [
-        { name: "Sede Bosa centro", address: "Cra. 78c #71 c 46 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/CLp4LWyGJkz5QoN9A" },
-        { name: "Sede Fontibón", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/ikbzx6LG99bxPr7m7" },
-        { name: "Sede San Cristóbal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4", mapUrl: "https://maps.app.goo.gl/XUYDGZMWJUhuH5FR7" },
+        { name: "Sede Bosa centro", address: "Cra. 78c #71 c 46 sur", videoSrc: "https://www.youtube.com/embed/dRS1N8nBHA4", mapUrl: "https://maps.app.goo.gl/CLp4LWyGJkz5QoN9A" },
+        { name: "Sede Fontibón", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.youtube.com/embed/dRS1N8nBHA4", mapUrl: "https://maps.app.goo.gl/ikbzx6LG99bxPr7m7" },
+        { name: "Sede San Cristóbal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.youtube.com/embed/dRS1N8nBHA4", mapUrl: "https://maps.app.goo.gl/XUYDGZMWJUhuH5FR7" },
     ];
 
     return (
-        <section id="locations" className="py-16 md:py-24 bg-[#FDFBF5] scroll-mt-20">
-            <div className="container mx-auto px-6">
+        <section id="locations" ref={sectionRef} className="py-16 md:py-24 bg-[#FDFBF5] scroll-mt-20 min-h-[60vh] relative overflow-hidden">
+            {/* Animated Icon Overlay */}
+            <div className={`absolute inset-0 flex justify-center items-start pt-24 z-20 pointer-events-none transition-all duration-700 ease-in-out ${animationStage === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-125'}`}>
+                <div className="bg-[#345E3B]/10 p-8 rounded-full animate-bounce-slow">
+                     <MapPinIcon className="w-32 h-32 md:w-48 md:h-48 text-[#345E3B]" />
+                </div>
+            </div>
+
+            {/* Main Content */}
+            <div className={`container mx-auto px-6 transition-all duration-1000 ease-out transform ${animationStage === 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20'}`}>
                 <h2 className="text-3xl md:text-4xl font-bold text-center text-[#4A2E1A] mb-4">Visítanos y Vive la Experiencia</h2>
                 <p className="text-center text-[#6B6B6B] max-w-2xl mx-auto mb-12">
                     Contamos con tres sedes para que disfrutes de nuestros deliciosos tamales donde quiera que estés. ¡Mira un poco de nuestro ambiente!
@@ -179,14 +235,13 @@ const VideoLocations: React.FC = () => {
                 <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
                     {locations.map((location, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-xl overflow-hidden group">
-                            <video
-                                src={location.videoSrc}
-                                controls
-                                className="w-full aspect-video object-cover"
-                                aria-label={`Video de la sucursal ${location.name}`}
-                            >
-                                Tu navegador no soporta el tag de video.
-                            </video>
+                            <iframe 
+                                src={location.videoSrc} 
+                                title={`Video de la sucursal ${location.name}`}
+                                className="w-full aspect-video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowFullScreen
+                            ></iframe>
                             <div className="p-6">
                                 <h3 className="text-2xl font-bold text-[#4A2E1A]">{location.name}</h3>
                                 <a 
@@ -208,39 +263,77 @@ const VideoLocations: React.FC = () => {
 };
 
 
-const Contact: React.FC = () => (
-    <section id="contact" className="py-16 md:py-24 bg-[#FDFBF5] scroll-mt-20">
-        <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#4A2E1A] mb-8">Contáctanos</h2>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
-                <div className="flex items-center text-lg text-[#333333]">
-                    <PhoneIcon className="w-6 h-6 mr-3 text-[#345E3B]" />
-                    <span>Pedidos: 3102800939</span>
+const Contact: React.FC = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.disconnect();
+            }
+        };
+    }, []);
+
+    return (
+        <section id="contact" ref={sectionRef} className="py-16 md:py-24 bg-[#FDFBF5] scroll-mt-20 overflow-hidden">
+            <div className="container mx-auto px-6 text-center">
+                <h2 
+                    className={`text-3xl md:text-4xl font-bold text-[#4A2E1A] mb-8 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'}`}
+                >
+                    Contáctanos
+                </h2>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+                    <div 
+                        className={`flex items-center text-lg text-[#333333] transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'}`}
+                    >
+                        <PhoneIcon className="w-6 h-6 mr-3 text-[#345E3B]" />
+                        <span>Pedidos: 3102800939</span>
+                    </div>
+                    <div 
+                        className={`flex items-center text-lg text-[#333333] transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
+                    >
+                        <ClockIcon className="w-6 h-6 mr-3 text-[#345E3B]" />
+                        <span>Todos los días de: 7:00am - 2:00pm</span>
+                    </div>
                 </div>
-                <div className="flex items-center text-lg text-[#333333]">
-                    <ClockIcon className="w-6 h-6 mr-3 text-[#345E3B]" />
-                    <span>Todos los días de: 7:00am - 2:00pm</span>
-                </div>
+                 <p 
+                    className={`mt-8 text-[#6B6B6B] transition-all duration-1000 delay-500 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                 >
+                    ¡Pedidos de Tamales al por mayor por WhatsApp!
+                 </p>
+                 
+                 <div className={`mt-12 transition-all duration-1000 delay-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <h3 className="text-2xl font-semibold text-[#4A2E1A] mb-6">Síguenos en nuestras redes</h3>
+                    <div className="flex justify-center items-center gap-8">
+                        <a href="https://www.tiktok.com/@el.chef.del.tolima" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-black hover:scale-110 transition-transform duration-300">
+                            <TiktokIcon className="w-8 h-8" />
+                        </a>
+                        <a href="https://instagram.com/elchefdeltolima" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#E1306C] hover:scale-110 transition-transform duration-300">
+                            <InstagramIcon className="w-8 h-8" />
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61559401654367" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#1877F2] hover:scale-110 transition-transform duration-300">
+                            <FacebookIcon className="w-8 h-8" />
+                        </a>
+                    </div>
+                 </div>
             </div>
-             <p className="mt-8 text-[#6B6B6B]">¡Pedidos de Tamales al por mayor por WhatsApp!</p>
-             
-             <div className="mt-12">
-                <h3 className="text-2xl font-semibold text-[#4A2E1A] mb-6">Síguenos en nuestras redes</h3>
-                <div className="flex justify-center items-center gap-8">
-                    <a href="https://www.tiktok.com/@el.chef.del.tolima" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-[#333333] hover:text-[#345E3B] transition-colors">
-                        <TiktokIcon className="w-8 h-8" />
-                    </a>
-                    <a href="https://instagram.com/elchefdeltolima" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#333333] hover:text-[#345E3B] transition-colors">
-                        <InstagramIcon className="w-8 h-8" />
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61559401654367" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#333333] hover:text-[#345E3B] transition-colors">
-                        <FacebookIcon className="w-8 h-8" />
-                    </a>
-                </div>
-             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 
 const Footer: React.FC = () => (
