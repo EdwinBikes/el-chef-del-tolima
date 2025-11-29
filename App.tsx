@@ -213,8 +213,8 @@ const VideoLocations: React.FC = () => {
 
     const locations = [
         { name: "Sede Bosa centro", address: "Cra. 78c #71 c 46 sur", videoSrc: "https://www.youtube.com/embed/dRS1N8nBHA4", mapUrl: "https://maps.app.goo.gl/CLp4LWyGJkz5QoN9A" },
-        { name: "Sede Fontibón", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.youtube.com/embed/dRS1N8nBHA4", mapUrl: "https://maps.app.goo.gl/ikbzx6LG99bxPr7m7" },
-        { name: "Sede San Cristóbal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.youtube.com/embed/dRS1N8nBHA4", mapUrl: "https://maps.app.goo.gl/XUYDGZMWJUhuH5FR7" },
+        { name: "Sede Fontibón", address: "AK 97 #23H - 06 LC 1", videoSrc: "https://www.youtube.com/shorts/9Z8scAIiGMA", mapUrl: "https://maps.app.goo.gl/ikbzx6LG99bxPr7m7" },
+        { name: "Sede San Cristóbal Sur", address: "Carrera 4e #28 86 sur", videoSrc: "https://www.youtube.com/shorts/sjemcl9Io4I", mapUrl: "https://maps.app.goo.gl/XUYDGZMWJUhuH5FR7" },
     ];
 
     return (
