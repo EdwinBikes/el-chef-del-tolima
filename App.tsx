@@ -316,7 +316,7 @@ const Contact: React.FC = () => {
                         className={`flex items-center text-lg text-[#333333] transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'}`}
                     >
                         <PhoneIcon className="w-6 h-6 mr-3 text-[#345E3B]" />
-                        <span>Pedidos: 3102800939</span>
+                        <span>Pedidos: 311 2643545</span>
                     </div>
                     <div 
                         className={`flex items-center text-lg text-[#333333] transition-all duration-1000 delay-300 ease-out transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
