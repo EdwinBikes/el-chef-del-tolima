@@ -103,9 +103,9 @@ const menuItems = [
     { name: "Tamal mediano", description: "El tamaño perfecto para todos, servido para una experiencia completa.", price: "$6.5k", imageUrl: "https://i.postimg.cc/8C3ZDMGm/tamal_mediano.jpg" },
     { name: "Tamal grande", description: "Nuestra porción más generosa para satisfacer los paladares más exigentes.", price: "$7.5k", imageUrl: "https://i.postimg.cc/Kvw8cMx0/imagen-editada.png" },
     { name: "Tamal picante", description: "El mejor y mas delicioso tamal picante de la ciudad.", price: "$9k", imageUrl: "https://i.postimg.cc/k5ZT9KCy/tamal_pequeno.jpg" },
-    { name: "Tamal con lechona", description: "La combinación perfecta del Tolima: tamal y nuestra crujiente lechona por un adicional de.", price: "$8k", imageUrl: "https://i.postimg.cc/wBPwHLzD/tamal_con_lechona.jpg" },
+    { name: "porción de lechona", description: "La combinación perfecta del Tolima: tamal y nuestra crujiente lechona por un precio adicional.", price: "$8k", imageUrl: "https://i.postimg.cc/wBPwHLzD/tamal_con_lechona.jpg" },
     { name: "Chocolate", description: "Bebida caliente y espumoso chocolate, el complemento ideal.", price: "$3k", imageUrl: "https://i.postimg.cc/sghbYBSt/chocolate2.jpg" },
-    { name: "Jugo de naranja", description: "Jugo 100% natural, recien preparado para acompañar tu tamal.", price: "$4k y 7k", imageUrl: "https://i.postimg.cc/tgfByWbh/jugo_naranja.jpg" },
+    { name: "Jugo de naranja", description: "Jugo 100% natural, recien preparado para acompañar tu tamal.", price: "$3k y 4k", imageUrl: "https://i.postimg.cc/tgfByWbh/jugo_naranja.jpg" },
   ];
 
 interface MenuItem {
