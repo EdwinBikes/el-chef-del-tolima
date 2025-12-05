@@ -105,7 +105,7 @@ const menuItems = [
     { name: "Tamal picante", description: "El mejor y mas delicioso tamal picante de la ciudad.", price: "$9k", imageUrl: "https://i.postimg.cc/k5ZT9KCy/tamal_pequeno.jpg" },
     { name: "porción de lechona", description: "La combinación perfecta del Tolima: tamal y nuestra crujiente lechona por un precio adicional.", price: "$8k", imageUrl: "https://i.postimg.cc/wBPwHLzD/tamal_con_lechona.jpg" },
     { name: "Chocolate", description: "Bebida caliente y espumoso chocolate, el complemento ideal.", price: "$3k", imageUrl: "https://i.postimg.cc/sghbYBSt/chocolate2.jpg" },
-    { name: "Jugo de naranja", description: "Jugo 100% natural, recien preparado para acompañar tu tamal.", price: "$3k y 4k", imageUrl: "https://i.postimg.cc/tgfByWbh/jugo_naranja.jpg" },
+    { name: "Jugo de naranja", description: "Jugo 100% natural, recien preparado para acompañar tu tamal.", price: "$3k y 4k", imageUrl: "https://postimg.cc/K34DjtHX" },
   ];
 
 interface MenuItem {
